@@ -1,13 +1,15 @@
 package edu.miu.web.Domain;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jdk.jfr.DataAmount;
+import lombok.Data;
+
 @Entity
+@Data
 public class Post {
         @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         long id;
         String title;
         String content;

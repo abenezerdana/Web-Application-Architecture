@@ -1,14 +1,13 @@
 package edu.miu.web.Service;
 
 import edu.miu.web.Domain.Post;
+import edu.miu.web.Domain.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-@Service
-public interface postservice  {
-    public <S extends Post> S save(S entity) ;
 
+public interface postservice  {
 
     public Optional<Post> findById(Long aLong) ;
 

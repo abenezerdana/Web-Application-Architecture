@@ -1,42 +1,40 @@
 package edu.miu.web.Service.postserviceImpl;
 
 import edu.miu.web.Domain.Post;
+import edu.miu.web.Repositery.postrepo;
 import edu.miu.web.Service.postservice;
 import edu.miu.web.Service.userservice;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
+@Service
 public class PostServiceImpl implements postservice {
-
-    private postservice postservice;
-    private userservice userservice;
-
-    private EntityManager entityManager;
-
-    @Override
-    public <S extends Post> S save(S entity) {
-        return null;
-    }
+@Autowired
+    private postrepo postrepo;
 
     @Override
     public Optional<Post> findById(Long id) {
-        return postservice.findById(id);
+        return postrepo.findById(Math.toIntExact(id));
     }
 
     @Override
     public List<Post> findAll() {
-        return (List<Post>) postservice.findAll();
+        return (List<Post>) postrepo.findAll();
     }
 
     @Override
     public void deleteById(Long id) {
-        postservice.deleteById(id);
+        postrepo.deleteById(Math.toIntExact(id));
     }
 
     @Override
     public void deleteAll() {
 
-        postservice.deleteAll();
+        postrepo.deleteAll();
     }
 }

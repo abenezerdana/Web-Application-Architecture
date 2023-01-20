@@ -1,17 +1,16 @@
 package edu.miu.web.Domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+import org.hibernate.engine.internal.Cascade;
 
 import java.util.List;
-@Entity
+@Entity(name = "Users")
 public class User {
 @Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String name;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)//acascade all associations
     @JoinColumn(name = "postuserJoin")
     List<Post> posts;
 
