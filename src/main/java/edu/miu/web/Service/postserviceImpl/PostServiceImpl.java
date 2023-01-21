@@ -3,7 +3,6 @@ package edu.miu.web.Service.postserviceImpl;
 import edu.miu.web.Domain.Post;
 import edu.miu.web.Repositery.postrepo;
 import edu.miu.web.Service.postservice;
-import edu.miu.web.Service.userservice;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;

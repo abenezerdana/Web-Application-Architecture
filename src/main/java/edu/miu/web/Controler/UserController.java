@@ -1,16 +1,20 @@
 package edu.miu.web.Controler;
 
 import edu.miu.web.Domain.User;
-import edu.miu.web.Service.userservice;
+import edu.miu.web.Service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 @RestController
 @RequestMapping("api/v1/users")
-public class UserControler {
+@RequiredArgsConstructor
+public class UserController {
 
-    private userservice userservice;
+    public final UserService userservice;
 
     @RequestMapping("")
     public Optional<User> findById(Long id)
@@ -32,5 +36,10 @@ public class UserControler {
     public void deleteAll() {
         userservice.deleteAll();
 
+    }
+
+    @PostMapping
+    public void save(@RequestBody User user){
+        userservice.save(user);
     }
 }

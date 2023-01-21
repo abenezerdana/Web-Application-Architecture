@@ -2,13 +2,14 @@ package edu.miu.web.Service.userserviceImpl;
 
 import edu.miu.web.Domain.User;
 import edu.miu.web.Repositery.user;
-import edu.miu.web.Service.userservice;
+import edu.miu.web.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
-public class UserClassImpl implements userservice {
+@Service
+public class UserClassImpl implements UserService {
 @Autowired
     private user users;
 
@@ -33,6 +34,11 @@ public class UserClassImpl implements userservice {
     public void deleteAll() {
         users.deleteAll();
 
+    }
+
+    @Override
+    public void save(User user){
+        users.save(user);
     }
 
 }
