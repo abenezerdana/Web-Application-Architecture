@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import jdk.jfr.DataAmount;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 public class Post {
@@ -14,6 +16,9 @@ public class Post {
         String title;
         String content;
         String author;
+        @OneToMany
+        @JoinColumn
+        List<Comment> comments;
 
 
 
