@@ -14,5 +14,7 @@ public class Comment {
     long id;
     @Column(name = "name")
     String name;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Post posts;
 
 }

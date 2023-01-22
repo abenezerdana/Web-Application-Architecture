@@ -1,5 +1,6 @@
 package edu.miu.web.Domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,8 +17,9 @@ public class User {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String name;
-    @OneToMany(cascade = CascadeType.ALL)//acascade all associations
+    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "postuserJoin")
+    @JsonManagedReference
     List<Post> posts;
 }
 

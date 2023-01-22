@@ -3,11 +3,17 @@ package edu.miu.web.Service.userserviceImpl;
 import edu.miu.web.Domain.User;
 import edu.miu.web.Repositery.user;
 import edu.miu.web.Service.UserService;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Service
 public class UserClassImpl implements UserService {
 @Autowired
