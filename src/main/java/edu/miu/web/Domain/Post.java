@@ -21,6 +21,8 @@ public class Post {
         @JoinColumn
         @JsonManagedReference
         List<Comment> comments;
+        @ManyToOne
+        private User users;
 
 
 

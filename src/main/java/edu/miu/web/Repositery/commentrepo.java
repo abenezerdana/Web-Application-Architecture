@@ -23,7 +23,7 @@ public interface commentrepo extends CrudRepository <Comment,Integer >{
     public List<User> findAllByPostsByTitleEquals(String name);
 
 
-    @Query("select c from Comment c join c.posts p join p. where u.id= :a and p.id=:b and c.id =:c")
+    @Query("select com from Comment c join c.posts p join p.users where p.users.id= :a and p.id=:b and c.id =:c")
 
 
     public Comment findCommentByUserPost(Long a, Long b, Long c);
